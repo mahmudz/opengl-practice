@@ -12,6 +12,24 @@ void printCords(float x, float y)
 };
 
 
+void circle(float x, float y)
+{
+    int i;
+    double radius = 0.30;
+    glColor3ub(255, 0, 0);
+
+    double twicePi = 2.0 * 3.142;
+    glBegin(GL_TRIANGLE_FAN);
+    glVertex2f(x, y);
+    for (i = 0; i <= 20; i++)
+    {
+        glVertex2f (
+            (x + (radius * cos(i * twicePi / 20))), (y + (radius * sin(i * twicePi / 20)))
+        );
+    }
+    glEnd();
+}
+
 void star(float x, float y, float radius1 = 3, float radius2= 1, int npoints = 5)
 {
 
@@ -43,7 +61,6 @@ void star(float x, float y, float radius1 = 3, float radius2= 1, int npoints = 5
 
 void drawRect(float x, float y, float height, float width)
 {
-    glColor3f(1,1,1);
     glBegin(GL_QUADS);
     glVertex2f(x,y);
     glVertex2f(x,y-height);
