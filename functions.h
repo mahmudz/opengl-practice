@@ -8,7 +8,7 @@ void printCords(double x, double y)
     cout << "(" << x << ", " << y << ")\n";
 };
 
-float * normalizeMouseCords(int mouseX, int mouseY, float zoom)
+void normalizeMouseCords(int mouseX, int mouseY, float zoom)
 {
 
     int winHeight = zoom * 100;
@@ -52,5 +52,5 @@ float * normalizeMouseCords(int mouseX, int mouseY, float zoom)
     printCords(ox,oy);
     cout << "\n";
 
-    return cords;
+//    return cords;
 }
