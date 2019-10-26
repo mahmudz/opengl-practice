@@ -12,6 +12,43 @@ void printCords(float x, float y)
 };
 
 
+void drawLine(float x1, float x2, float y1, float y2, float pointSize = 1)
+{
+    float x = 0;
+    float y = 0;
+    float step = 0;
+
+    float dx = x2 - x1;
+    float dy = y2 - y1;
+
+    printCords(dx, dy);
+
+    if(abs(dx) > abs(dy))
+    {
+        step = abs(dx);
+    }
+    else
+    {
+        step = abs(dy);
+    }
+
+    step *= 10;
+
+    float incX = dx / step;
+    float incY = dy / step;
+
+    glBegin(GL_POINTS);
+    for(int i = 0; i < step; i++)
+    {
+        x = x + incX;
+        y = y + incY;
+        printCords(x, y);
+        glVertex2f(x, y);
+    }
+    glEnd();
+}
+
+
 void circle(float x, float y)
 {
     int i;
